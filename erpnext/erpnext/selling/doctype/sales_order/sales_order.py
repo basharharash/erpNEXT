@@ -504,8 +504,8 @@ def get_list_context(context=None):
 
 @frappe.whitelist()
 def close_or_unclose_sales_orders(names, status):
-	if not frappe.has_permission("Sales Order", "write"):
-		frappe.throw(_("Not permitted"), frappe.PermissionError)
+	# if not frappe.has_permission("Sales Order", "write"):
+	# 	frappe.throw(_("Not permitted"), frappe.PermissionError)
 
 	names = json.loads(names)
 	for name in names:
@@ -1171,8 +1171,8 @@ def update_status(status, name):
 
 @frappe.whitelist()
 def make_raw_material_request(items, company, sales_order, project=None):
-	if not frappe.has_permission("Sales Order", "write"):
-		frappe.throw(_("Not permitted"), frappe.PermissionError)
+	# if not frappe.has_permission("Sales Order", "write"):
+	# 	frappe.throw(_("Not permitted"), frappe.PermissionError)
 
 	if isinstance(items, str):
 		items = frappe._dict(json.loads(items))

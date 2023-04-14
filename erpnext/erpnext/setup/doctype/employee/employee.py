@@ -255,11 +255,12 @@ class Employee(NestedSet):
 
 
 def validate_employee_role(doc, method):
-	# called via User hook
-	if "Employee" in [d.role for d in doc.get("roles")]:
-		if not frappe.db.get_value("Employee", {"user_id": doc.name}):
-			frappe.msgprint(_("Please set User ID field in an Employee record to set Employee Role"))
-			doc.get("roles").remove(doc.get("roles", {"role": "Employee"})[0])
+	pass
+	# # called via User hook
+	# if "Employee" in [d.role for d in doc.get("roles")]:
+	# 	if not frappe.db.get_value("Employee", {"user_id": doc.name}):
+	# 		frappe.msgprint(_("Please set User ID field in an Employee record to set Employee Role"))
+	# 		doc.get("roles").remove(doc.get("roles", {"role": "Employee"})[0])
 
 
 def update_user_permissions(doc, method):

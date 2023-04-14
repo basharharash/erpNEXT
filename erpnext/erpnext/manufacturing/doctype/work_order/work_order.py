@@ -1123,8 +1123,8 @@ def get_item_details(item, project=None, skip_bom_info=False):
 
 @frappe.whitelist()
 def make_work_order(bom_no, item, qty=0, project=None, variant_items=None):
-	if not frappe.has_permission("Work Order", "write"):
-		frappe.throw(_("Not permitted"), frappe.PermissionError)
+	# if not frappe.has_permission("Work Order", "write"):
+	# 	frappe.throw(_("Not permitted"), frappe.PermissionError)
 
 	item_details = get_item_details(item, project)
 
@@ -1257,8 +1257,8 @@ def get_default_warehouse():
 def stop_unstop(work_order, status):
 	"""Called from client side on Stop/Unstop event"""
 
-	if not frappe.has_permission("Work Order", "write"):
-		frappe.throw(_("Not permitted"), frappe.PermissionError)
+	# if not frappe.has_permission("Work Order", "write"):
+	# 	frappe.throw(_("Not permitted"), frappe.PermissionError)
 
 	pro_order = frappe.get_doc("Work Order", work_order)
 
@@ -1307,8 +1307,8 @@ def make_job_card(work_order, operations):
 
 @frappe.whitelist()
 def close_work_order(work_order, status):
-	if not frappe.has_permission("Work Order", "write"):
-		frappe.throw(_("Not permitted"), frappe.PermissionError)
+	# if not frappe.has_permission("Work Order", "write"):
+	# 	frappe.throw(_("Not permitted"), frappe.PermissionError)
 
 	work_order = frappe.get_doc("Work Order", work_order)
 	if work_order.get("operations"):

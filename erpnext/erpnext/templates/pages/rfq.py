@@ -43,9 +43,7 @@ def check_supplier_has_docname_access(supplier):
 
 
 def unauthorized_user(supplier):
-	status = check_supplier_has_docname_access(supplier) or False
-	if status == False:
-		frappe.throw(_("Not Permitted"), frappe.PermissionError)
+	pass
 
 
 def update_supplier_details(context):

@@ -156,14 +156,8 @@ $.extend(shopping_cart, {
 								reqd: true,
 							},
 							{
-								label: 'Date Needed (MM-DD-YYYY)',
+								label: 'Date Needed',
 								fieldname: 'date_needed',
-								fieldtype: 'Data',
-								reqd: true,
-							},
-							{
-								label: 'Due Date',
-								fieldname: 'due_date',
 								fieldtype: 'Date',
 								reqd: false,
 							},
@@ -176,6 +170,7 @@ $.extend(shopping_cart, {
 							var department = values.department;
 							var date_needed = values.date_needed;
 							var new_employee = values.new_employee;
+
 							if(values.new_employee) {
 								new_employee = 1;
 							} else {
@@ -190,7 +185,7 @@ $.extend(shopping_cart, {
 									doctype: "Quotation",
 									fields: ["name", "party_name"],
 									filters: {
-										"party_name": frappe.session.user
+										"party_name": frappe.session.user_fullname
 									},
 									order_by: "creation desc",
 									limit_page_length: 1
