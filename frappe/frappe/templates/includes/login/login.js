@@ -196,7 +196,7 @@ login.login_handlers = (function () {
 			if (data.message == 'Logged In') {
 				login.set_status('{{ _("Success") }}', 'green');
 				document.body.innerHTML = `{% include "templates/includes/splash_screen.html" %}`;
-				window.location.href = '/home';
+				window.location.href = '/all-products';
 			} else if (data.message == 'Password Reset') {
 				window.location.href = frappe.utils.sanitise_redirect(data.redirect_to);
 			} else if (data.message == "No App") {

@@ -203,8 +203,7 @@ $.extend(shopping_cart, {
 											// call the shopping_cart.request_quotation() function inside the frappe.call() callback
 											shopping_cart.request_quotation(this);
 											dialog.hide();
-											var message = "<p>Request Sent, you can close this window now.</p>";
-                   							message += "<button class='btn btn-primary btn-sm' onclick='close_tab()'>Close Tab</button>&nbsp;"; // add a button to close the tab
+											var message = "<p>Request Sent, you may exit this tab.</p>";
 											message += "<a href='/home'><button class='btn btn-primary btn-sm'>Go Home</button></a>"; // add a button to go to the home page
 											frappe.msgprint(message); // show the success message
 										}

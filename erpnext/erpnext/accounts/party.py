@@ -111,11 +111,11 @@ def _get_party_details(
 	)
 	party = party_details[party_type.lower()]
 
-	if not ignore_permissions and not (
-		frappe.has_permission(party_type, "read", party)
-		or frappe.has_permission(party_type, "select", party)
-	):
-		frappe.throw(_("Not permitted for {0}").format(party), frappe.PermissionError)
+	# if not ignore_permissions and not (
+	# 	frappe.has_permission(party_type, "read", party)
+	# 	or frappe.has_permission(party_type, "select", party)
+	# ):
+	# 	frappe.throw(_("Not permitted for {0}").format(party), frappe.PermissionError)
 
 	party = frappe.get_doc(party_type, party)
 	currency = party.get("default_currency") or currency or get_company_currency(company)

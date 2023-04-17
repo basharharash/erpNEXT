@@ -94,7 +94,7 @@
 				{% if product_info.price and (cart_settings.allow_items_not_in_stock or product_info.in_stock) %}
 					<a href="/cart" class="btn btn-light btn-view-in-cart hidden mr-2 font-md"
 						role="button">
-						{{  _("View in Cart") if cart_settings.enable_checkout else _("View in Quote") }}
+						{{  _("View in Cart") if cart_settings.enable_checkout else _("View in Cart") }}
 					</a>
 					<button
 						data-item-code="{{item_code}}"
@@ -105,7 +105,7 @@
 								<use href="#icon-assets"></use>
 							</svg>
 						</span>
-						{{ _("Add to Cart") if cart_settings.enable_checkout else  _("Add to Quote") }}
+						{{ _("Add to Cart") if cart_settings.enable_checkout else  _("Add to Cart") }}
 					</button>
 				{% endif %}
 
