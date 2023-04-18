@@ -11,6 +11,9 @@ app_license = "GNU General Public License (v3)"
 source_link = "https://github.com/frappe/erpnext"
 app_logo_url = "/assets/erpnext/images/erpnext-logo.svg"
 
+permission_query_conditions = {
+    "Quotation": "erpnext.selling.doctype.quotation.quotation.get_permission_query_conditions",
+}
 
 develop_version = "14.x.x-develop"
 

@@ -76,6 +76,10 @@ def get_billing_addresses(party=None):
 		if address.address_type == "Billing"
 	]
 
+@frappe.whitelist()
+def clear_cart_count():
+    frappe.local.cookie_manager.delete_cookie("cart_count")
+
 
 @frappe.whitelist()
 def place_order():

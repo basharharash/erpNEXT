@@ -197,7 +197,7 @@ $.extend(shopping_cart, {
 										args: {
 											doctype: "Quotation",
 											name: r.message[0].name,
-											fieldname: {"employee_name": full_name, "employee_email": anc_email, "department": department, "date_needed": date_needed, "new_employee": new_employee},
+											fieldname: {"employee_name": full_name, "employee_email": anc_email, "department": department, "date_needed": date_needed, "new_employee": new_employee, "r_email": frappe.session.user},
 										},
 										callback: function() {
 											// call the shopping_cart.request_quotation() function inside the frappe.call() callback
@@ -206,6 +206,7 @@ $.extend(shopping_cart, {
 											var message = "<p>Request Sent, you may exit this tab.</p>";
 											message += "<a href='/home'><button class='btn btn-primary btn-sm'>Go Home</button></a>"; // add a button to go to the home page
 											frappe.msgprint(message); // show the success message
+											shopping_cart.clear_cart_count();
 										}
 									});
 									

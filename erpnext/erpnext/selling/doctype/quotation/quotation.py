@@ -23,7 +23,7 @@ class Quotation(SellingController):
 
 	def validate(self):
 		super(Quotation, self).validate()
-		self.set_status()
+		#self.set_status()
 		self.validate_uom_is_integer("stock_uom", "qty")
 		# self.validate_valid_till()
 		self.validate_shopping_cart_items()
@@ -193,15 +193,15 @@ class Quotation(SellingController):
 		self.update_opportunity("Quotation")
 		self.update_lead()
 
-	def on_cancel(self):
-		if self.lost_reasons:
-			self.lost_reasons = []
-		super(Quotation, self).on_cancel()
+	# def on_cancel(self):
+	# 	if self.lost_reasons:
+	# 		self.lost_reasons = []
+	# 	super(Quotation, self).on_cancel()
 
-		# update enquiry status
-		self.set_status(update=True)
-		self.update_opportunity("Open")
-		self.update_lead()
+	# 	# update enquiry status
+	# 	self.set_status(update=True)
+	# 	self.update_opportunity("Open")
+	# 	self.update_lead()
 
 	def print_other_charges(self, docname):
 		print_lst = []
@@ -465,3 +465,15 @@ def _make_customer(source_name, ignore_permissions=False):
 				return customer_name
 		else:
 			return frappe.get_doc("Customer", quotation.get("party_name"))
+
+
+def get_permission_query_conditions(user):
+	if not user:
+		user = frappe.session.user
+
+	roles = frappe.get_roles(user)
+
+	if 'Administrator' or 'System Manager' in roles:
+		return None
+	else:
+		return """`tabQuotation`.`owner` = '{user}'""".format(user=user)

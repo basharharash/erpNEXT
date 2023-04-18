@@ -120,7 +120,7 @@ $.extend(shopping_cart, {
 		var $badge = $cart.find("#cart-count");
 
 		if(parseInt(cart_count) === 0 || cart_count === undefined) {
-			$cart.css("display", "none");
+			//$cart.css("display", "none");
 			$(".cart-tax-items").hide();
 			$(".btn-place-order").hide();
 			$(".cart-payment-addresses").hide();
@@ -165,13 +165,23 @@ $.extend(shopping_cart, {
 					$(".payment-summary").html(r.message.taxes_and_totals);
 					shopping_cart.set_cart_count();
 
-					if (cart_dropdown != true) {
-						$(".cart-icon").hide();
-					}
+					// if (cart_dropdown != true) {
+					// 	$(".cart-icon").hide();
+					// }
 				}
 			},
 		});
 	},
+
+	clear_cart_count: function() {
+		frappe.call({
+			method: "erpnext.e_commerce.shopping_cart.cart.clear_cart_count",
+			callback: function() {
+				shopping_cart.set_cart_count(true);
+			}
+		});
+	},
+	
 
 	show_cart_navbar: function () {
 		frappe.call({

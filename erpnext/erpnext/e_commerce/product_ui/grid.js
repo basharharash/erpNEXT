@@ -123,7 +123,7 @@ erpnext.ProductGrid = class {
 
 	get_price_html(item) {
 		let price_html = `
-			<div class="product-price">
+			<div class="product-price" >
 				${ item.formatted_price || '' }
 		`;
 

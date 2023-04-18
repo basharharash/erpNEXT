@@ -176,7 +176,7 @@
 		<div class="product-title">{{ title or ''}}</div>
 		<div class="product-category">{{ item.item_group or '' }}</div>
 	</div>
-	<div class="product-price">
+	<div class="product-price" style="display: none;">
 		{{ item.get("formatted_price") or '' }}
 
 		{% if item.get("formatted_mrp") %}

@@ -127,7 +127,6 @@
   "column_break_117",
   "order_lost_reason",
   "additional_info_section",
-  "status",
   "customer_group",
   "territory",
   "column_break_108",
@@ -139,7 +138,9 @@
   "enq_det",
   "connections_tab",
   "valid_till",
-  "requestor_email"
+  "requestor_email",
+  "r_email",
+  "wf_status"
  ],
  "fields": [
   {
@@ -705,7 +706,6 @@
   {
    "fieldname": "base_rounded_total",
    "fieldtype": "Currency",
-   "hidden": 1,
    "label": "Rounded Total (Company Currency)",
    "oldfieldname": "rounded_total",
    "oldfieldtype": "Currency",
@@ -748,7 +748,6 @@
    "bold": 1,
    "fieldname": "rounded_total",
    "fieldtype": "Currency",
-   "hidden": 1,
    "label": "Rounded Total",
    "oldfieldname": "rounded_total_export",
    "oldfieldtype": "Currency",
@@ -759,12 +758,10 @@
   {
    "fieldname": "in_words",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "In Words",
    "length": 240,
    "oldfieldname": "in_words_export",
    "oldfieldtype": "Data",
-   "print_hide": 1,
    "read_only": 1,
    "width": "200px"
   },
@@ -918,20 +915,6 @@
    "width": "50%"
   },
   {
-   "default": "Draft",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "no_copy": 1,
-   "oldfieldname": "status",
-   "oldfieldtype": "Select",
-   "options": "Draft\nOpen\nReplied\nPartially Ordered\nOrdered\nLost\nCancelled\nExpired",
-   "print_hide": 1,
-   "read_only": 1,
-   "reqd": 1
-  },
-  {
    "fieldname": "enq_det",
    "fieldtype": "Text",
    "hidden": 1,
@@ -1000,7 +983,6 @@
   {
    "fieldname": "scan_barcode",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Scan Barcode",
    "options": "Barcode"
   },
@@ -1169,6 +1151,21 @@
    "fieldtype": "Link",
    "label": "Requestor Email",
    "options": "User"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "wf_status",
+   "fieldtype": "Data",
+   "label": "WF Status",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "r_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Requestor Email",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-shopping-cart",
@@ -1180,7 +1177,7 @@
    "link_fieldname": "email"
   }
  ],
- "modified": "2023-04-14 14:42:09.305751",
+ "modified": "2023-04-18 09:34:11.917421",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Quotation",
@@ -1284,9 +1281,22 @@
    "share": 1,
    "submit": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "submit": 1,
+   "write": 1
   }
  ],
- "search_fields": "status,transaction_date,party_name,order_type",
+ "search_fields": "wf_status",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

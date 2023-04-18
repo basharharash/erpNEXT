@@ -97,7 +97,7 @@
 
 			<!-- Shown on mobile view, else hidden -->
 			{% if cart_settings.enable_checkout or cart_settings.show_price_in_quotation %}
-				<div class="text-right sm-item-subtotal">
+				<div class="text-right sm-item-subtotal" style="display: none;">
 					{{ item_subtotal(d) }}
 				</div>
 			{% endif %}
@@ -105,7 +105,7 @@
 
 		<!-- Subtotal column -->
 		{% if cart_settings.enable_checkout or cart_settings.show_price_in_quotation %}
-			<td class="text-right item-subtotal column-sm-view w-100">
+			<td class="text-right item-subtotal column-sm-view w-100" >
 				{{ item_subtotal(d) }}
 			</td>
 		{% endif %}
