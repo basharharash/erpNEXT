@@ -1,0 +1,32 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.wf_status == \"Rejected\"",
+ "creation": "2023-04-18 10:46:29.279545",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Quotation",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Rejected",
+ "modified": "2023-04-18 10:55:06.342674",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "eSARF",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "requestor_email",
+   "receiver_by_role": ""
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": "Support",
+ "sender_email": "do-not-reply@albertanewsprint.com",
+ "subject": "eSARF {{doc.name}} Rejected",
+ "value_changed": "wf_status"
+}
