@@ -112,15 +112,15 @@ $.extend(shopping_cart, {
 			cart_count = 0;
 		}
 
-		if(cart_count) {
-			$(".shopping-cart").toggleClass('hidden', false);
-		}
+		// if(cart_count) {
+		// 	$(".shopping-cart").toggleClass('hidden', false);
+		// }
 
 		var $cart = $('.cart-icon');
 		var $badge = $cart.find("#cart-count");
 
 		if(parseInt(cart_count) === 0 || cart_count === undefined) {
-			//$cart.css("display", "none");
+			$cart.css("display", "none");
 			$(".cart-tax-items").hide();
 			$(".btn-place-order").hide();
 			$(".cart-payment-addresses").hide();
@@ -146,9 +146,10 @@ $.extend(shopping_cart, {
 					$cart.removeClass("cart-animate");
 				}, 500);
 			}
-		} else {
-			$badge.remove();
-		}
+		} 
+		// else {
+		// 	$badge.remove();
+		// }
 	},
 
 	shopping_cart_update: function({item_code, qty, cart_dropdown, additional_notes}) {

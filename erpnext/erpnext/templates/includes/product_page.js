@@ -52,21 +52,23 @@ frappe.ready(function() {
 		}
 	})
 
-	$("#item-add-to-cart button").on("click", function() {
-		frappe.provide('erpnext.shopping_cart');
-
-		erpnext.shopping_cart.update_cart({
-			item_code: get_item_code(),
-			qty: $("#item-spinner .cart-qty").val(),
-			callback: function(r) {
-				if(!r.exc) {
-					toggle_update_cart(1);
-					qty = 1;
-				}
-			},
-			btn: this,
+	$(document).ready(function() {
+		$("#item-add-to-cart button").on("click", function() {
+			frappe.provide('erpnext.shopping_cart');
+	
+			erpnext.shopping_cart.update_cart({
+				item_code: get_item_code(),
+				qty: $("#item-spinner .cart-qty").val(),
+				callback: function(r) {
+					if (!r.exc) {
+						toggle_update_cart(1);
+						qty = 1;
+						updateCartCount(); // Call the updateCartCount function here
+					}
+				},
+				btn: this,
+			});
 		});
-	});
 
 	$("#item-spinner").on('click', '.number-spinner button', function () {
 		var btn = $(this),
@@ -215,3 +217,16 @@ function get_selected_attributes() {
 	});
 	return attributes;
 }
+
+
+function updateCartCount() {
+	// Retrieve the current cart count
+	var currentCount = parseInt($("#cart-count").text());
+
+	// Increment the cart count
+	currentCount++;
+
+	// Update the cart count element with the new count
+	$("#cart-count").text(currentCount);
+}
+});

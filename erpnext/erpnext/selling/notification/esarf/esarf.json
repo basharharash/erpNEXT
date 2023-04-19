@@ -12,14 +12,14 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Rejected",
- "modified": "2023-04-18 10:55:06.342674",
+ "modified": "2023-04-19 10:56:41.770849",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "eSARF",
  "owner": "Administrator",
  "recipients": [
   {
-   "receiver_by_document_field": "requestor_email",
+   "receiver_by_document_field": "owner",
    "receiver_by_role": ""
   }
  ],
